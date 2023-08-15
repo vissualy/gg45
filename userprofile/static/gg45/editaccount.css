@@ -1,0 +1,65 @@
+.first{
+    border: 1px solid black;
+    height: 70px;
+    margin-bottom: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+#home{
+    width: 20px;
+    color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.contents{
+    border: 1px solid black;
+    text-align: center;
+}
+.bio{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.submit{
+    margin: 10px;
+}
+#submit{
+    width: 100px;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+.account{
+    margin: 10px;
+}
+#account{
+    width: 20px;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.video-upload-container {
+    margin: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Set the desired height for the container */
+    border: 2px dashed #ccc; /* Optional border for visual reference */
+    background-color: #f5f5f5; /* Optional background color */
+}
+
+.video-upload-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.video-upload-icon {
+    width: 24px; /* Adjust icon size as needed */
+    height: 24px;
+    cursor: pointer;
+}

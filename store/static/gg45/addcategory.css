@@ -1,0 +1,31 @@
+.first{
+    height: 70px;
+    background-color: black;
+}
+#account{
+    color: white;
+    width: 20px;
+    margin-top: 23px;
+    margin-left: 10px;
+}
+.content{
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.tittle{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#submit{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+#submit:hover{
+    background-color: white;
+    color: black;
+}

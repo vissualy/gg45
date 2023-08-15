@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'gg45/addproduct.css' %}">
+</head>
+<body>
+    <div class="first">
+        <a href="{% url 'homepage' %}">
+            <svg id="home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>           
+        </a>
+        <div class="tittle">
+                    <h3 id="tittle">{{tittle}}</h3>
+        </div>
+        <a href="{% url 'dashboard' %}">
+            <button id="account">
+                dashboard
+            </button>              
+        </a>
+    </div>
+    <br>
+    {% block body %}
+        <div class="contents">
+            <form method="post" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="category">
+                    <p id="category">{{form.category.label}}</p>
+                    {{form.category}}
+                </div>
+                <div class="tittle">
+                    <p id="category">{{form.tittle.label}}</p>
+                    {{form.tittle}}
+                </div>
+                <br>
+                <div class="banner">
+                    <p id="category">{{ form.banner.label }}</p>
+                    <div class="upload-container">
+                        <input type="file" name="{{ form.banner.name }}" id="{{ form.banner.id_for_label }}" class="upload-input">
+                        <label for="{{ form.banner.id_for_label }}" class="upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
+                            </svg>                              
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="image">
+                    <p id="category">{{ form.video.label }}</p>
+                    <div class="video-upload-container">
+                        <input type="file" name="{{ form.video.name }}" id="{{ form.video.id_for_label }}" class="video-upload-input">
+                        <label for="{{ form.video.id_for_label }}" class="video-upload-icon">
+                            <svg id="video" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
+                            </svg>                              
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="description">
+                    <p id="category">{{form.description.label}}</p>
+                    {{form.description}}
+                </div>
+                <br>
+                <div class="price">
+                    <p id="category">{{form.price.label}}</p>
+                    {{form.price}}
+                </div>
+                <button type="submit" id="submit">submit</button>
+            </form>
+            {% if product %}
+                <a href="{% url 'deleteproduct' product.id %}"><button id="submit">delete</button></a>
+            {% endif %}
+            </div>
+    {% endblock %}
+</body>
+</html>

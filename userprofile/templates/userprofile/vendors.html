@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'gg45/vendor.css' %}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <a href="{% url 'reviewvendors' %}">
+                <button id="home">admin</button>                 
+            </a>
+        </div>
+    </header>
+    {% block body %}
+        <div class="vendor">
+            {% for vendor in vendors %}
+                <p id="vendor">{{vendor.first_name}} {{vendor.last_name}}</p><a href="{% url 'acceptedvendor' vendor.id %}"><button id="view">view</button></a>
+                <br>
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>

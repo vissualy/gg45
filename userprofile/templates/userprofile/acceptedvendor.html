@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'gg45/acceptedvendor.css' %}">
+</head>
+<body>
+    <div class="home">
+        <a href="{% url 'reviewvendors' %}">
+            <a href="{% url 'vendors' %}"><button id="home">Vendors</button></a>            
+        </a>
+    </div>
+    {% block body %}
+        <div class="content">
+            <div class="image">
+                <img src="{{vendor.image.url}}" alt="" id="vendorid">
+            </div>
+            <div class="image">
+                <img src="{{vendor.identification.url}}" alt="" id="vendorid">
+            </div>
+            <div class="idnumber">
+                ID NUMBER:{{vendor.identification_number}}
+            </div>
+            <div class="first">
+                FIRST NAME:{{vendor.first_name}}
+            </div>
+            <div class="last">
+                LAST NAME:{{vendor.last_name}}
+            </div>
+            <div class="mobile">
+                MOBILE NUMBER:{{vendor.mobile_number}}
+            </div>
+            <div class="bussiness_name">
+                BUSSINESS NAME:{{vendor.bussiness_name}}
+            </div>
+            <div class="bussiness_address">
+                BUSSINESS ADDRESS:{{vendor.bussiness_address}}
+            </div>
+            <div class="bussiness_number">
+                BUSSINESS NUMBER:{{vendor.bussiness_number}}
+            </div>
+        </div>
+        <div class="delete">
+            <a href="{% url 'deletevendor' vendor.id 'delete' %}"><button id="delete">delete</button></a>
+        </div>        
+    {% endblock %}
+</body>
+</html>

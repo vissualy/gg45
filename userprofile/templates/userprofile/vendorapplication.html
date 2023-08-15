@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'gg45/vendorapply.css' %}">
+</head>
+<body>
+    <div class="first">
+        <a href="{% url 'account' user.id %}">
+            <a href="{% url 'account' user.id %}">
+                <svg id="account" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>              
+            </a>
+        </a>
+    </div>
+    {% block body %}
+        <div class="content">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="identification">
+                    <div class="banner">
+                        <p id="category">{{ form.image.label }}</p>
+                        <div class="upload-container">
+                            <input type="file" name="{{ form.image.name }}" id="{{ form.image.id_for_label }}" class="upload-input">
+                            <label for="{{ form.image.id_for_label }}" class="upload-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
+                                </svg>                              
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="image">
+                        <p id="category">{{ form.identification.label }}</p>
+                        <div class="video-upload-container">
+                            <input type="file" name="{{ form.identification.name }}" id="{{ form.identification.id_for_label }}" class="video-upload-input">
+                            <label for="{{ form.identification.id_for_label }}" class="video-upload-icon">
+                                <svg id="video" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
+                                </svg>                              
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="identification_number">
+                        <P>{{form.identification_number.label}}</P>
+                        {{form.identification_number}}
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="firstname">
+                        <p>{{form.first_name.label}}</p>
+                        {{form.first_name}}
+                    </div>
+                    <br>
+                    <div class="last">
+                        <p>{{form.last_name.label}}</p>
+                        {{form.last_name}}
+                    </div>
+                </div>
+                <div class="mobile">
+                    <p>{{form.mobile_number.label}}</p>
+                    {{form.mobile_number}}
+                </div>
+                <div class="bussiness">
+                    <div class="name">
+                        <p>{{form.bussiness_name.label}}</p>
+                        {{form.bussiness_name}}
+                    </div>
+                    <div class="address">
+                        <p>{{form.bussiness_address.label}}</p>
+                        {{form.bussiness_address}}
+                    </div>
+                    <div class="number">
+                        <p>{{form.bussiness_number.label}}</p>
+                        {{form.bussiness_number}}
+                    </div>
+                </div>
+                <button type="submit" id="submit">submit</button>
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>
